@@ -16,33 +16,25 @@ class Truck {
 
 
 class Factory {
-
     create = (options, vehicleType) => {
-
         if(!vehicleType) {
             return "unable to make vehicle. Please specify a vehicle type and tryagain!"
         }
 
         let vehicle;
-        
         if (vehicleType === "car") {
             vehicle = new Car(options);
         } else if (vehicleType === "truck") {
             vehicle = new Truck(options);
         } 
 
-		
         vehicle.vehicleType = vehicleType;
-
         vehicle.startEngine = ()=> console.log(`Reving ${vehicleType} engine`);
-
         vehicle.driveVehicle = ()=> console.log(`Driving ${vehicleType}...`);
-
         vehicle.stopEngine = ()=> console.log(`Stop ${vehicleType} engine`);
 
         return vehicle;
     }
-	
 };
 
 const vehicleFactory = new Factory();
@@ -54,8 +46,8 @@ const car = vehicleFactory.create({
 }, "car");
 
 console.log(car)
-console.log(car.startEngine())
-console.log(car.driveVehicle())
+car.startEngine()
+car.driveVehicle()
 
 // prints:
 //Car {
@@ -78,8 +70,8 @@ const truck = vehicleFactory.create({
 }, "truck")
 
 console.log(truck)
-console.log(truck.startEngine())
-console.log(truck.stopEngine())
+truck.startEngine()
+truck.stopEngine()
 // prints
 //Truck {
 //  wheels: 4,

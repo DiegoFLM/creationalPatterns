@@ -34,13 +34,11 @@ class Motorcycle {
 class Factory {
 
     create = (options, vehicleType) => {
-
         if(!vehicleType) {
             return "unable to make vehicle. Please specify a vehicle type and tryagain!"
         }
 
         let vehicle;
-        
         if (vehicleType === "car") {
             vehicle = new Car(options);
         } else if (vehicleType === "truck") {
@@ -51,13 +49,9 @@ class Factory {
             vehicle = new Motorcycle(options);
         }
 
-		
         vehicle.vehicleType = vehicleType;
-
         vehicle.startEngine = ()=> console.log(`Reving ${vehicleType} engine`);
-
         vehicle.driveVehicle = ()=> console.log(`Driving ${vehicleType}...`);
-
         vehicle.stopEngine = ()=> console.log(`Stop ${vehicleType} engine`);
 
         return vehicle;
